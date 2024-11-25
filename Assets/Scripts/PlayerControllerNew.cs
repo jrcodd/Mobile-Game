@@ -1,42 +1,130 @@
 using UnityEngine;
 
+/// <summary>
+/// This script is for the player controller. It handles the player's movement, dodging, and attacking. (not in use bcause I do it server side now)
+/// </summary>
+/// <author>Jackson Codd</author>
+/// <version>1.0 Build 2024.11.24</version>
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Animator))]
 public class PlayerControllerNew : MonoBehaviour
 {
     [Header("UI")]
+    /// <summary>
+    /// The joystick that the player will use to move
+    /// </summary>
     [SerializeField] private FixedJoystick joystick;
+
+    /// <summary>
+    /// The animator object that will animate the player
+    /// </summary>
     [SerializeField] private Animator animator;
 
     [Header("PlayerSettings")]
+
+    /// <summary>
+    /// The speed that the player will move
+    /// </summary>
     [SerializeField] private float moveSpeed = 5f;
+
+    /// <summary>
+    /// The speed that the player will dodge
+    /// </summary>
     [SerializeField] private float dodgeSpeed = 20f;
+
+    /// <summary>
+    /// The duration of the dodge
+    /// </summary>
     [SerializeField] private float dodgeDuration = 0.2f;
+
+    /// <summary>
+    /// The cooldown of the dodge
+    /// </summary>
     [SerializeField] private float dodgeCooldown = 1f;
+
+    /// <summary>
+    /// The rate that the player will hit
+    /// </summary>
     [SerializeField] private float hitRate = 1f;
+
+    /// <summary>
+    /// The range that the player will hit in
+    /// </summary>
     [SerializeField] private float hitRange = 3f;
 
     [Header("Prefabs")]
+    /// <summary>
+    /// The slash animation that will play when the player attacks
+    /// </summary>
     [SerializeField] private GameObject slashAnimation;
 
     [Header("Camera")]
+    /// <summary>
+    /// The main camera
+    /// </summary>
     [SerializeField] private Camera mainCamera;
 
+    /// <summary>
+    /// The character controller
+    /// </summary>
     private CharacterController controller;
+
+    /// <summary>
+    /// The move direction of the player
+    /// </summary>
     private Vector3 moveDirection;
+
+    /// <summary>
+    /// The last move direction of the player
+    /// </summary>
     private Vector3 lastMoveDirection;
+
+    /// <summary>
+    /// The direction that the player will dodge
+    /// </summary>
     private Vector3 dodgeDirection;
+
+    /// <summary>
+    /// Whether the player is dodging
+    /// </summary>
     private bool isDodging;
+
+    /// <summary>
+    /// The time of the last dodge
+    /// </summary>
     private float lastDodgeTime;
+
+    /// <summary>
+    /// The time of the last hit
+    /// </summary>
     private float lastHitTime;
+
+    /// <summary>
+    /// The target enemy that the player will attack
+    /// </summary>
     private Transform targetEnemy;
+
+    /// <summary>
+    /// The damage that the player will deal
+    /// </summary>
     private float damage;
+
+    /// <summary>
+    /// The timer for the dodge
+    /// </summary>
     private float dodgeTimer;
 
+    /// <summary>
+    /// When the script is enabled, initialize the components
+    /// </summary>
     private void OnEnable()
     {
         InitializeComponents();
-        //SetupDamageAndHealth();
     }
 
+    /// <summary>
+    /// When the script is enabled, set up the damage and health
+    /// </summary>
     private void InitializeComponents()
     {
         controller = GetComponent<CharacterController>();
@@ -51,12 +139,18 @@ public class PlayerControllerNew : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When the script is enabled, set up the damage and health
+    /// </summary>
     private void SetupDamageAndHealth()
     {
         damage = PlayerCharacter.Singleton.equippedItem.damage == 0 ? 1 : PlayerCharacter.Singleton.equippedItem.damage * (1f + 0.01f * PlayerCharacter.Singleton.currentLevel);
         gameObject.GetComponent<Health>().maxHealth = PlayerCharacter.Singleton.GetHealth();
     }
 
+    /// <summary>
+    /// Every frame handle moevement. 
+    /// </summary>
     private void Update()
     {
         HandleMovement();
@@ -65,6 +159,9 @@ public class PlayerControllerNew : MonoBehaviour
         AttackEnemy();
     }
 
+    /// <summary>
+    /// move the player based on joystick input
+    /// </summary>
     private void HandleMovement()
     {
         if (isDodging) return;
@@ -106,7 +203,10 @@ public class PlayerControllerNew : MonoBehaviour
             animator.SetBool("Running", false);
         }
     }
-
+    
+    /// <summary>
+    /// dode action
+    /// </summary>
     private void HandleDodge()
     {
         if (isDodging)
@@ -131,7 +231,9 @@ public class PlayerControllerNew : MonoBehaviour
             }
         }
     }
-
+    /// <summary>  
+    /// Start the dodge player movement
+    /// </summary>
     private void StartDodge(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
@@ -142,13 +244,18 @@ public class PlayerControllerNew : MonoBehaviour
         lastDodgeTime = Time.time;
         animator.SetBool("Dodging", true);
     }
-
+    /// <summary>
+    /// End the dodge player movement
+    /// </summary>
     private void EndDodge()
     {
         isDodging = false;
         animator.SetBool("Dodging", false);
     }
 
+    /// <summary>
+    /// Find the nearest enemy
+    /// </summary>
     private void FindNearestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -173,6 +280,9 @@ public class PlayerControllerNew : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Attack the enemy
+    /// </summary>
     private void AttackEnemy()
     {
         if (targetEnemy == null) return;

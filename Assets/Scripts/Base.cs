@@ -3,19 +3,67 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
  
+/// <summary>
+/// This script is for the base location on the map
+/// </summary>
+/// <author>Jackson Codd</author>
+/// <version>1.0 Build 2024.11.24</version>
 public class Base : MonoBehaviour
 {
-    [SerializeField] private int mapSize = 10; // The size of the map so 5 means that things can spawn with (-5,-5) to (5,5)
+
+    /// <summary>
+    /// The size of the map so 5 means that things can spawn with (-5,-5) to (5,5)
+    /// </summary>
+    [SerializeField] private int mapSize = 10; 
+
+    /// <summary>
+    /// The canvas that the button will be placed on
+    /// </summary>
     [SerializeField] private Canvas canvas;
+
+    /// <summary>
+    /// The button prefab that will be instantiated
+    /// </summary>
     [SerializeField] private Button buttonPrefab;
+
+    /// <summary>
+    /// The canvas that will be shown when the button is clicked
+    /// </summary>
     [SerializeField] private GameObject upgradeCanvas;
+
+    /// <summary>
+    /// The canvas that will be shown when the button is clicked
+    /// </summary>
     [SerializeField] private GameObject MarketCanvas;
+
+    /// <summary>
+    /// The canvas that will be shown when the button is clicked
+    /// </summary>
     [SerializeField] private GameObject raceCanvas;
+
+    /// <summary>
+    /// The current location that is highlighted
+    /// </summary>
     [SerializeField] private GameObject current;
+
+    /// <summary>
+    /// The list of regions that are on the map
+    /// </summary>
     [SerializeField] private List<GameObject> regions;
+
+    /// <summary>
+    /// The button that will be shown
+    /// </summary>
     private Button button;
+
+    /// <summary>
+    /// The offset of the button
+    /// </summary>
     [SerializeField] private float offset = 25f;
 
+    /// <summary>
+    /// The singleton instance of the base
+    /// </summary>
     private static Base _singleton;
     public static Base Singleton
     {
@@ -34,10 +82,12 @@ public class Base : MonoBehaviour
 
         }
     }
-    private void OnEnable()
 
+    /// <summary>
+    /// This code is run when the script is enabled. So the button and map are instantiated.
+    /// </summary>
+    private void OnEnable()
     {
-        // Create button
         if (button == null)
         {
             button = Instantiate(buttonPrefab, canvas.transform);
@@ -46,6 +96,10 @@ public class Base : MonoBehaviour
 
         GenerateMap();
     }
+    
+    /// <summary>
+    /// This code is run when the script is disabled. So the map is hidden.
+    /// </summary>
     private void OnDisable()
     {
         if (regions != null && regions.Count > 0)
@@ -59,17 +113,23 @@ public class Base : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// activates all of the regionss
+    /// </summary>
     private void GenerateMap()
     {
-        foreach (GameObject region in regions   )
+        foreach (GameObject region in regions)
         {
             region.SetActive(true);
         }
     }
 
+    /// <summary>
+    /// This method creates a line from the region that the player is in to the region where they want to go
+    /// </summary>
     public void ShowButton(Transform endObject)
     {
-        // Position button in the blow the regon of the line
         Vector3 buttonPosition = Vector3.Lerp(endObject.position, endObject.position - new Vector3(0,0, offset), 0.5f);
         button.transform.position = Camera.main.WorldToScreenPoint(buttonPosition);
         Region selectedRegion = endObject.gameObject.GetComponent<Region>();
@@ -89,6 +149,9 @@ public class Base : MonoBehaviour
         button.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// This method hides the button
+    /// </summary>
     public void HideButton()
     {
         if (button != null)
@@ -96,6 +159,10 @@ public class Base : MonoBehaviour
             Invoke(nameof(DisableLineAndButton), 0.1f);
         }
     }
+
+    /// <summary>
+    /// This method disables the line and button
+    /// </summary>
     void DisableLineAndButton()
     {
         if (button.gameObject.activeSelf)
@@ -104,6 +171,9 @@ public class Base : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Instantiate the singleton object when the script is awake
+    /// </summary>
     private void Awake()
     {
         Singleton = this;

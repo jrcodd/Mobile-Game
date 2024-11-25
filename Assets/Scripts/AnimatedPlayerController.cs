@@ -2,15 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+///This script is responsible for controlling the player's movement animations
+///</summary>
+///<author>Jackson Codd</author>
+///<version>1.0 Build 2024.11.24</version>
 public class AnimatedPlayerController : MonoBehaviour
 {
-    [SerializeField] private FixedJoystick joystick; // Reference to the joystick
+    /// <summary>
+    /// Reference to the joystick
+    /// </summary>
+    [SerializeField] private FixedJoystick joystick;
+
+    /// <summary>
+    /// Reference to the animator
+    /// </summary>
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject slashAnimation; // Reference to the slash animation prefab
+
+    /// <summary>
+    /// Reference to the slash animation
+    /// </summary>
+    [SerializeField] private GameObject slashAnimation;
+
+    /// <summary>
+    /// When the script is run, instantiate the joystick
+    /// </summary>
     private void Start()
     {
         joystick = GameObject.FindGameObjectWithTag("Joystick").GetComponent<FixedJoystick>();
     }
+
+    /// <summary>
+    /// Every frame I am checking the joystick input and updating the player's rotation and animation state
+    /// </summary>
     private void Update()
     {
         float _horizontal = joystick.Horizontal;
@@ -24,8 +48,7 @@ public class AnimatedPlayerController : MonoBehaviour
         if (moveDirection != Vector3.zero)
         {
             animator.SetBool("isRunning", true);
-        }
-        else
+        } else
         {
             animator.SetBool("isRunning", false);
         }
