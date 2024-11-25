@@ -86,11 +86,14 @@ public class NetworkManager : MonoBehaviour
             InterpolationTick = (ushort)(ServerTick - value);
         }
     }
-    [SerializeField] private string ip;
+    private string ip;
     [SerializeField] private ushort port;
     [Space(10)]
     [SerializeField] private ushort tickDivergenceTolerance = 1;
-
+    public void SetIp(string ip)
+    {
+        this.ip = ip;
+    }
     private void Awake()
     {
         Singleton = this;

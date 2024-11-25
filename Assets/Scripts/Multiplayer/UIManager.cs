@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
     public void ConnectClicked()
     {
         usernameField.interactable = false;
+        string ip = usernameField.text;
+        NetworkManager.Singleton.SetIp(ip);
         connectionStatus.text = "Connecting...";
 
         NetworkManager.Singleton.Connect();

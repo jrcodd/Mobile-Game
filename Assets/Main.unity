@@ -7376,7 +7376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd2819ab4966f645bb57e4879cf4391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ip: 192.168.86.59
   port: 7777
   tickDivergenceTolerance: 1
 --- !u!4 &639810654
@@ -15354,7 +15353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Username...
+  m_text: Enter the Server IP...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
