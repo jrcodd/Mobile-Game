@@ -1738,7 +1738,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 1e788020b35c25c439bb8bdf501f9015, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9900c133773314cbabd63f9350d79f92, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &518346691273435021
 Rigidbody:
@@ -2704,7 +2704,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0226771ad045bdf4191b13bcd54fa3f7, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ed62a62f88f094404a6416014c215c20, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &2891078137836471474
 Rigidbody:
@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0926941ed7521ac4aab07b2bc2f516f8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f90f6a6bbaf9a448b865082e54c5dca4, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &4261595073163686887
 Rigidbody:
@@ -3567,7 +3567,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a30ea9ad01eceb74987915e28f88f41a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 80a1f49ed8bc745d3bfc45820cd90c2e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &4982780710071286893
 Rigidbody:
@@ -3976,7 +3976,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: e0448c6b83feb50489d8a3cc378d8ecc, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 31f5dac21ef704383ab4cd638be07256, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &8697412473873484868
 Rigidbody:
@@ -4263,7 +4263,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0f5e3e192f093af4dafd0d55c3ad7b2e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: def206a7115e94e5b8e5612f141cee2f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &2566872207467382758
 Rigidbody:
@@ -5684,7 +5684,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: f0a1015e1babd8646b52d9bda1b8b797, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 94286515e050a4315b50fba9a1615f28, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &6323925323205237470
 Rigidbody:
@@ -5738,7 +5738,7 @@ Transform:
   m_GameObject: {fileID: 6302209725107963803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.5, y: 0, z: -172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5912,7 +5912,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 008b2f5239434a9448f40786f0bf27b7, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2ce9a0ebfd9f74728ba89366c71ca601, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &3912438657985189285
 Rigidbody:
@@ -6077,7 +6077,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a0f87bd6f14b4ac488ff764d1b409fb9, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 375f0fb2b0172410ba63636e3b6c6915, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &1907689398104037496
 Rigidbody:
@@ -7208,7 +7208,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0c9ad51e9cbf2af4da73cdcaf7e2dd89, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d0c047f98324e40abb80e2ec94b5740c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &8988891980662766976
 Rigidbody:
@@ -7642,7 +7642,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c76fa5afcb715fd4480aee2fff1b6e43, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 19cf05d43dab844b49e8a70d5f2977fc, type: 2}
   m_BuildHeightMesh: 0
 --- !u!54 &2647271168726415600
 Rigidbody:
