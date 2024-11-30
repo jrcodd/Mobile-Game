@@ -141,6 +141,7 @@ public class MapCameraController : MonoBehaviour
     /// <summary>
     /// When the touch is pressed, start panning the camera
     /// </summary>
+    /// <param name="context">The context of the input action</param>
     private void OnTouchPressed(InputAction.CallbackContext context)
     {
         if (gameObject.activeSelf)
@@ -158,6 +159,7 @@ public class MapCameraController : MonoBehaviour
     /// <summary>
     /// When the finger moves, pan the camera
     /// </summary>
+    /// <param name="finger">The finger that is moving</param>
     private void OnFingerMove(Finger finger)
     {
         if (gameObject.activeSelf)
@@ -181,6 +183,7 @@ public class MapCameraController : MonoBehaviour
     /// <summary>
     /// When the touch is released, stop panning the camera and handle tile selection
     /// </summary>
+    /// <param name="context">The context of the input action</param>
     private void OnTouchReleased(InputAction.CallbackContext context)
     {
         if (gameObject.activeSelf)
@@ -218,6 +221,7 @@ public class MapCameraController : MonoBehaviour
     /// <summary>   
     /// Zoom the camera in or out
     /// </summary>
+    /// <param name="increment">The amount to zoom by</param>
     private void Zoom(float increment)
     {
         if (gameObject.activeSelf)
@@ -234,6 +238,7 @@ public class MapCameraController : MonoBehaviour
     /// <summary>
     /// Handle the selection of a tile
     /// </summary>
+    /// <param name="screenPosition">The position of the click on the screen</param>
     private void HandleTileSelection(Vector2 screenPosition)
     {
         if (gameObject.activeSelf)

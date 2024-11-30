@@ -53,6 +53,10 @@ public class BaseButton : MonoBehaviour
     /// <summary>
     /// Update the button with the new information
     /// </summary>
+    /// <param name="_next">The next location that the player will travel to</param>
+    /// <param name="_current">The current location that the player is at</param>
+    /// <param name="_resource">The type of resource that the player needs to have to travel here</param>
+    /// <param name="_cost">The cost of the travel</param>
     public void UpdateButton(GameObject _next, GameObject _current, ResourceType _resource, int _cost)
     {
         if (_cost < 0) _cost = -_cost;

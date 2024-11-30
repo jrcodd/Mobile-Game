@@ -194,6 +194,7 @@ public class Map : MonoBehaviour
     /// <summary>
     /// Show the dashed line and button
     /// </summary>
+    /// <param name="endObject">The object that the dashed line will end at</param>
     public void ShowDashedLineAndButton(Transform endObject)
     {
         if (startObject == null || endObject == null)

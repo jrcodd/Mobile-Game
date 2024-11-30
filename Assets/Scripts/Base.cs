@@ -128,6 +128,7 @@ public class Base : MonoBehaviour
     /// <summary>
     /// This method creates a line from the region that the player is in to the region where they want to go
     /// </summary>
+    /// <param name="endObject">The object that the line will go to</param>
     public void ShowButton(Transform endObject)
     {
         Vector3 buttonPosition = Vector3.Lerp(endObject.position, endObject.position - new Vector3(0,0, offset), 0.5f);

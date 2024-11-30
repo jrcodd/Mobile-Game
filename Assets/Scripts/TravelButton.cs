@@ -49,6 +49,9 @@ public class TravelButton : MonoBehaviour
     /// <summary>
     /// Update the button with the new information
     /// </summary>
+    /// <param name="next">The next location that the player will travel to</param>
+    /// <param name="current">The current location that the player is at</param>
+    /// <param name="_distance">The cost of the travel</param>
     public void UpdateButton(GameObject next, GameObject current, int _distance)
     {
         if(_distance < 0) _distance = -_distance;

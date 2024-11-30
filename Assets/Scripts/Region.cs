@@ -1,6 +1,9 @@
 
 using UnityEngine;
 
+///<summary>
+/// Enum for the type of region
+///</summary>
 public enum RegionType
 {
     empty = 0,
@@ -13,22 +16,51 @@ public enum RegionType
     upgrades = 7
 
 }
+
+///<summary>
+/// This script is a general script for all of the regions on the map. 
+///</summary>
+///<author>Jackson Codd</author>
+///<version>1.0 Build 2024.11.29</version>
 public class Region : MonoBehaviour
 {
+    ///<summary>
+    /// The type of region that this is
+    ///</summary>
     public RegionType regionType;
 
+    ///<summary>
+    /// The renderers of the region so that I can highlight them
+    ///</summary>
     [SerializeField] private Renderer[] rends;
+
+    ///<summary>
+    /// The original color of the region so I can unhighlight it
+    ///</summary>
     private Color originalColor;
+
+    ///<summary>
+    /// The canvas that will be shown when the region is clicked
+    ///</summary>
     private GameObject regionCanvas;
    
-
+    ///<summary>
+    /// Instantiate the original color of the region
     void Start()
     {
         foreach (Renderer rend in rends)
         {
-            //originalColor = rend.material.color;
+            if(rend != null && rend.material != null && rend.material.color != null)
+            {
+                originalColor = rend.material.color;
+            }
         }
     }
+
+    ///<summary>
+    /// Highlight the region after a delay
+    ///</summary>
+    ///<param name="delay">The amount of time to wait before highlighting</param>
     public void DelayedHighlight(float delay)
     {
         Invoke(nameof(Highlight), delay);

@@ -17,6 +17,7 @@ public class Boss : MonoBehaviour
     /// <summary>
     /// When the boss is defeated, give the player rewards
     /// </summary>
+    /// <returns>A tuple containing the loot box and the number of coins</returns>
     public (LootBox, int) GiveRewards()
     {
         float[] chances = GetDropChances(ItemDatabase.Singleton.lootBoxes.Count);
@@ -30,6 +31,7 @@ public class Boss : MonoBehaviour
     /// <summary>
     /// The weight function that will be used to determine the drops
     /// </summary>
+    /// <param name="x">The value that will be used in the function</param>
     private float WeightFunction(int x)
     {
         return 5 * Mathf.Pow(x + floatVal * 5, 2 * (floatVal - 0.5f));
@@ -38,6 +40,8 @@ public class Boss : MonoBehaviour
     /// <summary>
     /// Get the drop chances for the loot boxes
     /// </summary>
+    /// <param name="numItems">The number of items that will be dropped</param>
+    /// <returns>An array of the drop chances</returns>
     private float[] GetDropChances(int numItems)
     {
         float[] rawChances = new float[numItems];
@@ -60,6 +64,8 @@ public class Boss : MonoBehaviour
     /// <summary>
     /// Choose a random item based on the probabilities
     /// </summary>
+    /// <param name="probabilities">The probabilities of each item</param>
+    /// <returns>The index of the chosen item</returns>
     private int Choose(float[] probabilities)
     {
         float r = Random.value;

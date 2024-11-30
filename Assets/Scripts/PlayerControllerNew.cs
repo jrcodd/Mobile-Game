@@ -166,29 +166,22 @@ public class PlayerControllerNew : MonoBehaviour
     {
         if (isDodging) return;
 
-        // Get raw input from joystick
         Vector2 input = new Vector2(joystick.Horizontal, joystick.Vertical);
 
-        // Only proceed if there's input
         if (input.magnitude >= 0.1f)
         {
-            // Get the forward and right vectors of the camera
             Vector3 forward = mainCamera.transform.forward;
             Vector3 right = mainCamera.transform.right;
 
-            // Project forward and right vectors on the horizontal plane (y = 0)
             forward.y = 0f;
             right.y = 0f;
             forward.Normalize();
             right.Normalize();
 
-            // Calculate the move direction in world space
             moveDirection = (forward * input.y + right * input.x).normalized;
 
-            // Move the player
             controller.Move(moveSpeed * Time.deltaTime * moveDirection);
 
-            // Rotate the player to face the move direction
             if (moveDirection != Vector3.zero)
             {  
                 transform.rotation = Quaternion.LookRotation(moveDirection);
@@ -234,6 +227,7 @@ public class PlayerControllerNew : MonoBehaviour
     /// <summary>  
     /// Start the dodge player movement
     /// </summary>
+    /// <param name="direction">The direction that the player will dodge</param>
     private void StartDodge(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
