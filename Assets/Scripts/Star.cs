@@ -21,6 +21,7 @@ public class Star : MonoBehaviour
     /// <summary>
     /// kind of unnessesary way to implement this byt basically update the image when the filled status changes
     /// </summary>
+    private bool isFilled;
     public bool IsFilled
     {
         get { return isFilled; }
