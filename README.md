@@ -1,6 +1,6 @@
 # Duaviva Game
 ## Overview
-This mobile app, developed with C#, Unity, and Figma, aims to combine real life excersize activity with in game rewards. When the players accumulate steps in the real world, they can transfer them to the game and use them to gain xp points or travel to different places in the game. Currently they can fight bosses, race other players, or explore dungeons. In the boss fights and the dungeons, they can collect loot boxes and open them to unlock new weapons to strengthen their virtual character. 
+This mobile app, developed with C#, Unity, and Figma, aims to combine real life excersize activity with in game rewards to inspire people to be more active. By rewarding players for achieving their fitness goals, we can help create a habit of being healthy. When the players accumulate steps in the real world, they can transfer them to the game and use them to gain xp points or travel to different places in the game. Currently they can fight bosses, race other players, or explore dungeons. In the boss fights and the dungeons, they can collect loot boxes and open them to unlock new weapons to strengthen their virtual character. 
 
 ## Key Features
 ### Multiplayer System with Secure Data Exchange: 
